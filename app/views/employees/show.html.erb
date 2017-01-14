@@ -1,0 +1,29 @@
+<table>
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 center">
+    <h3><en>Дані співробітника: </en></h3>
+  </div>
+</div>
+
+<tr>
+    <th>Прізвище: </th>
+    <th>Дата народження: </th>
+    <th>Посада: </th>
+    <th>Лікарні в яких працює: </th>
+    <th>Дії: </th>
+  </tr>
+
+      <tr>
+        <td><%= @employee.last_name %></td>
+        <td><%= @employee.birthday %><br>
+        <td><%= @employee.position %></td>
+        <td>
+          <% @employee.hospitals.each do |h| %>
+          <%= h.number %>
+          <% end %>
+        </td>
+        <td><%= link_to "Редагувати", edit_employee_path %></td>
+      </tr>
+</table>
+</body>

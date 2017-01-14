@@ -1,0 +1,14 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: "<%= ENV["DATABASE_USERNAME"] %>"
+  password: "<%= ENV["DATABASE_PASSWORD"] %>"
+
+development:
+  <<: *default
+  database: IgiMed_development
+
+test:
+  <<: *default
+  database: IgiMed_test

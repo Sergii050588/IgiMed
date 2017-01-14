@@ -1,0 +1,23 @@
+<%= link_to "Додати співробітника", new_employee_path, class: "btn btn-lg btn-success" %>
+
+<table>
+
+<th>Список співробітників:</th>
+  <tr>
+    <th>Прізвище: </th>
+    <th>Дата народження: </th>
+    <th>Посада: </th>
+    <th>Дії: </th>
+  </tr>
+
+<% @employees.each do |employee| %>
+  <tr>
+    <td><%= link_to employee.last_name, employee_path(employee) %></td>
+    <td><%= employee.birthday %><br>
+    <td><%= employee.position %></td>
+    <td><%= link_to "Видалити", employee_path(employee.id), method: :delete %></td>
+  </tr>
+<% end %>
+
+</table>
+</body>

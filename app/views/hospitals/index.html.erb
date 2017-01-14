@@ -1,0 +1,19 @@
+<%= link_to "Додати лікарню", new_hospital_path, class: "btn btn-lg btn-success" %>
+
+<table>
+
+<th>Список лікарень:</th>
+  <tr>
+    <th>Номер лікарні: </th>
+    <th>Дії: </th>
+  </tr>
+
+  <% @hospitals.each do |hospital| %>
+  <tr>
+    <td><%= link_to hospital.number, hospital_path(hospital)  %></td>
+    <td><%= link_to "Видалити", hospital_path(hospital.id), method: :delete %></td>
+  </tr>
+  <% end %>
+
+</table>
+</body>

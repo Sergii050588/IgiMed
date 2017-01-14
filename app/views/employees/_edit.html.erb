@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="well col-md-8 col-md-offset-2">
+        <%= form_for @employee do |employee| %>
+            <%= employee.label :last_name, "Прізвище"  %>
+            <%= employee.text_field :last_name %>
+
+            <%= employee.label :birthday, "Дата народження"  %>
+            <%= employee.date_field :birthday %>
+
+            <%= employee.label :position, "Посада"  %>
+            <%= employee.select(:position, Employee::POSITIONS_LIST) %>
+
+            
+            <div><label>Лікарня</label></div>
+            <%= employee.collection_check_boxes(:hospital_ids, Hospital.all, :id, :number) %>
+            
+
+            <%= employee.submit(class: "btn btn-success") %>
+        <% end %>
+    </div>
+</div>
